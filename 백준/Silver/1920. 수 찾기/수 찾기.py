@@ -11,20 +11,17 @@ def find_num(left, right, target):
     
     mid = (left + right)//2
     
-    if(nlist[mid] == target):
-        print("1")
-        return
-    
-    if (left >= right):
+    if (left > right):
         print("0")
         return
         
     if target > nlist[mid]:
         find_num(mid+1, right, target)
-        
     elif target < nlist[mid]:
         find_num(left, mid-1, target)
-
+    else:
+        print("1")
+        return
 
 for target in targets:
     find_num(0,len(nlist)-1, target)
