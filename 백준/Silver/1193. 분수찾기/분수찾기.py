@@ -7,7 +7,4 @@ while num > cnt:
     num -= cnt
     cnt += 1
 
-if (cnt%2==1):
-    print("{}/{}".format(cnt-num+1, num))
-else:
-    print("{}/{}".format(num, cnt-num+1))
+print("{}/{}".format(cnt-num+1, num) if cnt%2==1 else "{}/{}".format(num, cnt-num+1))
