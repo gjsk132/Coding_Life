@@ -1,13 +1,15 @@
-input = open(0).readline
-num, target = map(int,input().split())
-cnt = 0
-while target > num:
-    if target%2==0:
-        target //= 2
-    elif target%10==1:
-        target //= 10
-    else:
-        break
-    cnt += 1
+a,b = map(int,input().split())
+r = 1
+while(b!=a):
+    r+=1
+    temp = b
+    if b%10 == 1:
+        b//=10
+    elif b%2 == 0:
+        b//=2
     
-print(cnt+1 if target==num else -1)
+    if temp == b:
+        print(-1)
+        break
+else:
+    print(r)
