@@ -15,8 +15,10 @@ for i in range(test):
         deq.append([v,k]) #max 함수 사용할 때 중요도를 기준으로 먼저 나올 수 있게하기 위함.
     
     cnt = 1
+    
+    high = max(deq)[0]
+    
     while True:
-        high = max(deq)[0]
         
         docu = deq.popleft()
         
@@ -26,4 +28,5 @@ for i in range(test):
             print(cnt)
             break
         else:
+            high = max(deq)[0]
             cnt+=1
