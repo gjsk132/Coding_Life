@@ -1,0 +1,1 @@
+print(len(list(open(0).readline().split())))
