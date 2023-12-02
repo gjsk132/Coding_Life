@@ -26,6 +26,5 @@ for my in range(size):
         if chart[my][mx] == 1:
             area.append(dfs(mx, my))
 
-    
 print(len(area))
 print(*sorted(area), sep="\n")
