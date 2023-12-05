@@ -1,5 +1,6 @@
 while True:
     try:
-        print(sum(list(map(int, input().split()))))
-    except EOFError:
+        a, b = map(int, input().split())
+        print(a+b)
+    except:
         break
