@@ -1,6 +1,7 @@
-n = input()
+import sys
+n = sys.stdin.readline()
 cnt = 0
-for i in map(int, input().split()):
+for i in map(int, sys.stdin.readline().split()):
     if i <= 1:
         continue
     prime = True
