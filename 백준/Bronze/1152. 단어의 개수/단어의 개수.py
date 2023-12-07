@@ -1,1 +1,1 @@
-print(len(list(open(0).readline().split())))
+print(len(list(input().split())))
