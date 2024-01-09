@@ -6,6 +6,8 @@ height, width, trash = map(int,input().split())
 
 passage = [[0 for _ in range(width+1)] for _ in range(height+1)]
 
+offset = [(-1, 0),(0,1),(1,0),(0,-1)]
+
 for i in range(trash):
     x, y = map(int,input().split())
     passage[x][y] = 1
@@ -17,7 +19,7 @@ def bfs(x,y):
     while queue:
         px, py = queue.popleft()
         
-        for i, j in zip([-1,0,1,0],[0,1,0,-1]):
+        for i, j in offset:
             nx = px+i
             ny = py+j
             
