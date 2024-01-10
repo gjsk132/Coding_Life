@@ -1,3 +1,4 @@
+input = open(0).readline
 home = int(input())
 
 dp = [list(map(int,input().split())) for i in range(home)]
