@@ -1,5 +1,5 @@
 from collections import deque
-
+input = open(0).readline
 size = int(input())
 
 dist = [[0 for i in range(size+1)] for _ in range(size+1)]
@@ -23,4 +23,5 @@ while dq:
             if (not v == 0) and (not check[k]):
                 dq.append([k, cost+v])
                 result = max(result, cost+v)
+
 print(result)
