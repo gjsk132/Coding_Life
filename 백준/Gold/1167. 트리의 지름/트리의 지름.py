@@ -1,11 +1,8 @@
 from collections import defaultdict, deque
-
 input = open(0).readline
 
 node = int(input())
-
 tree = [{} for _ in range(node+1)]
-tree_re = [{} for _ in range(node+1)]
 
 for i in range(node):
     cost_info = list(map(int,input().split()))
@@ -17,11 +14,9 @@ for i in range(node):
             break
         cost = cost_info.pop(0)
         tree[start][end] = cost
-        tree_re[start][cost] = end
 
 def bfs(v=1):
     check = [False for i in range(node+1)]
-
     dq = deque([(v,0)])
     start = v
     high = 0
