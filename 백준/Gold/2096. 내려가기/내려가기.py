@@ -1,3 +1,4 @@
+input = open(0).readline
 layer = int(input())
 
 low = [[0,0,0], [0,0,0]]
