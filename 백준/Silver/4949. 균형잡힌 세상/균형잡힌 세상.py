@@ -1,10 +1,8 @@
-from collections import deque
-
 input = open(0).readline
 
 while (text := input().rstrip()) and text != '.':
     
-    dq = deque()
+    dq = []
     good = True
 
     for i in text:
@@ -15,4 +13,4 @@ while (text := input().rstrip()) and text != '.':
                 good = False
                 break
         
-    print("yes" if good and (not dq) else "no")
+    print("yes" if good and not dq else "no")
