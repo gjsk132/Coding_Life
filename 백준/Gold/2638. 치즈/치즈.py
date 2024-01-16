@@ -17,7 +17,7 @@ while empty or melt:
         px, py, day = melt.popleft()
         result = max(day, result)
         
-    for dx, dy in zip([-1,0,1,0],[0,1,0,-1]):
+    for dx, dy in [(-1,0),(1,0),(0,1),(0,-1)]:
         nx = px+dx
         ny = py+dy
         
@@ -26,11 +26,11 @@ while empty or melt:
         
         if table[nx][ny] == 0:
             table[nx][ny] = -1
-            empty.append([nx, ny, day])
+            empty.append((nx, ny, day))
         
         elif table[nx][ny] == 2:
             table[nx][ny] = -1
-            melt.append([nx, ny, day+1])
+            melt.append((nx, ny, day+1))
             
         else:
             table[nx][ny] += 1
