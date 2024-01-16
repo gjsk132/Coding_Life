@@ -1,9 +1,8 @@
 from collections import deque
 
-while True:
-    text = input()
-    if text == ".":
-        break
+input = open(0).readline
+
+while (text := input().rstrip()) and text != '.':
     
     dq = deque()
     good = True
@@ -12,15 +11,8 @@ while True:
         if i in "([":
             dq.append(i)
         elif i in ")]":
-            if not dq:
+            if not dq or not dq.pop()+i in ["()","[]"]:
                 good = False
                 break
-            
-            op = dq.pop()
-            if (op=="(" and i ==")") or (op=="[" and i =="]"):
-                continue
-            
-            good = False
-            break
         
     print("yes" if good and (not dq) else "no")
