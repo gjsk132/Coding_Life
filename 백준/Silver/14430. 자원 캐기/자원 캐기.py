@@ -1,5 +1,5 @@
+input = open(0).readline
 n,m = map(int,input().split())
-
 dp =[list(map(int,input().split())) for _ in range(n)]
 
 for x in range(n):
