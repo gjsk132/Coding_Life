@@ -51,11 +51,12 @@ def solution(edges):
     
         if grape[n]==set():
             stick += 1
-        else:
-            for i in grape[n]:
-                if check[i]:
-                    donut += 1
-                    break
-                node.append(i)
+            continue
+            
+        for i in grape[n]:
+            if check[i]:
+                donut += 1
+                break
+            node.append(i)
                 
     return [start, donut, stick, eight]
