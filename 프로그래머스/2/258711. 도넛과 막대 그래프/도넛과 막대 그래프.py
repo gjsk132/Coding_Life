@@ -2,17 +2,18 @@ from collections import defaultdict, deque
 
 def solution(edges):
     
-    grape = defaultdict(list)
+    grape = defaultdict(set)
     
     check = [True]*(max(map(max, edges))+1)
     check[0] = False
     
     for s, e in edges:
-        grape[s].append(e)
+        grape[s].add(e)
         if check[e]:
             check[e] = False
 
-    start = 1
+    start = 0
+    total = 0
     eight, stick, donut = 0, 0, 0
     
     # find start and eight loop ( 2 or more start node in line )
@@ -31,8 +32,9 @@ def solution(edges):
                     for i in grape[n]:
                         edq.append(i)
         # 길이가 가장 긴 것을 기억하고 있음. (위 조건문과는 완전 별개개)
-        elif len(v) > start and check[k]:
+        elif len(v) > total and check[k]:
             start = k
+            total = len(v)
 
     # false node connected with top node(start)
     node = deque()
@@ -47,7 +49,7 @@ def solution(edges):
         n = node.popleft()
         check[n] = True
     
-        if not grape[n]:
+        if grape[n]==set():
             stick += 1
         else:
             for i in grape[n]:
