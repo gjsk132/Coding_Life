@@ -4,13 +4,10 @@ chart = [list(map(int, input().rstrip("\n"))) for i in range(size)]
 
 area = []
 
-dy = [1, 0, -1, 0]
-dx = [0, 1, 0, -1]
-
 def dfs(x, y):
     chart[y][x] = 2
     p_area = 1
-    for j, i in zip(dy, dx):
+    for j, i in zip([1, 0, -1, 0], [0, 1, 0, -1]):
         ny = y+j
         nx = x+i
         if nx < 0 or nx == size or ny < 0 or ny == size:
