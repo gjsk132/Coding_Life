@@ -2,13 +2,13 @@ from collections import defaultdict, deque
 
 def solution(edges):
     
-    grape = defaultdict(set)
+    graph = defaultdict(set)
     
     check = [True]*(max(map(max, edges))+1)
     check[0] = False
     
     for s, e in edges:
-        grape[s].add(e)
+        graph[s].add(e)
         if check[e]:
             check[e] = False
 
@@ -17,9 +17,7 @@ def solution(edges):
     eight, stick, donut = 0, 0, 0
     
     # find start and eight loop ( 2 or more start node in line )
-    for k, v in zip(grape.keys(), grape.values()):
-        
-        # 들어오는 간선이 있으면서, 길이가 2인 경우
+    for k, v in zip(graph.keys(), graph.values()):
         if len(v) == 2 and not check[k]:
             eight += 1
             
@@ -29,16 +27,15 @@ def solution(edges):
                 n = edq.popleft()
                 if not check[n]:
                     check[n] = True
-                    for i in grape[n]:
+                    for i in graph[n]:
                         edq.append(i)
-        # 길이가 가장 긴 것을 기억하고 있음. (위 조건문과는 완전 별개개)
         elif len(v) > total and check[k]:
             start = k
             total = len(v)
 
     # false node connected with top node(start)
     node = deque()
-    for i in grape[start]:
+    for i in graph[start]:
         if check[i]:
             continue
         node.append(i)
@@ -49,11 +46,11 @@ def solution(edges):
         n = node.popleft()
         check[n] = True
     
-        if grape[n]==set():
+        if graph[n]==set():
             stick += 1
             continue
             
-        for i in grape[n]:
+        for i in graph[n]:
             if check[i]:
                 donut += 1
                 break
