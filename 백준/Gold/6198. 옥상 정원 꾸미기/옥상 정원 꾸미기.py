@@ -14,8 +14,4 @@ for i in range(n):
         else:
             top -= 1
 
-while building:
-    a, b = building.pop()
-    cnt += b
-
-print(cnt)
+print(cnt + sum(map(lambda x: x[1], building)))
