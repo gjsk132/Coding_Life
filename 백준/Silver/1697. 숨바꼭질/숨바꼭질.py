@@ -15,9 +15,7 @@ while True:
         print(time)
         break
     
-    for i in [ 1, -1, point ]:
-        np = point+i
-        
+    for np in [ point + 1, point - 1, point*2 ]:
         if np < 0 or np >= limit or check[np]:
             continue
         
