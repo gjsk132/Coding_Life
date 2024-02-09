@@ -2,12 +2,13 @@ input = open(0).readline
 
 loads, bag = map(int,input().split())
 
-dp = [[0 for i in range(bag+1)] for _ in range(loads+1)]
+dp = [[s for i in range(bag+1)] for s in range(2)]
 
-for step in range(loads):
+for step in range(1, loads+1):
     kg, value = map(int,input().split())
+    sp = step%2
     
     for p in range(bag+1):
-        dp[step+1][p] = max(dp[step][p], dp[step][p-kg]+value if p >=kg else 0)
-    
-print(dp[-1][-1])
+        dp[sp][p] = max(dp[sp-1][p], dp[sp-1][p-kg]+value if p >=kg else 0)
+
+print(dp[loads%2][-1])
