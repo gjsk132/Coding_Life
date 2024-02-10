@@ -1,20 +1,18 @@
 input = open(0).readline
 
-square = int(input())
-size = 1
+eat = int(input())
 
-while size < square:
-    size *= 2
+choco = 1
+while choco < eat:
+    choco *= 2
 
-i = size
-cnt = 0
+print(choco, end=" ")
 
-while square != 0:
-    if square >= i:
-        square -= i
-        i //= 2
-        cnt += 1
-    else:
-        i //= 2
-        cnt += 1
-print(size, cnt-1)
+cnt = -1
+
+while choco and eat:
+    eat -= choco if eat >= choco else 0
+    choco //= 2
+    cnt += 1
+    
+print(cnt)
