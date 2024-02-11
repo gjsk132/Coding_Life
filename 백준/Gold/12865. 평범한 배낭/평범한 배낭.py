@@ -1,14 +1,15 @@
 input = open(0).readline
 
-loads, bag = map(int,input().split())
+N, K = map(int, input().split())
+objects = [map(int, input().split()) for _ in range(N)]
 
-dp = [[s for i in range(bag+1)] for s in range(2)]
+max_values = [0] * (K + 1)
 
-for step in range(1, loads+1):
-    kg, value = map(int,input().split())
-    sp = step%2
-    
-    for p in range(bag+1):
-        dp[sp][p] = max(dp[sp-1][p], dp[sp-1][p-kg]+value if p >=kg else 0)
-
-print(dp[loads%2][-1])
+for weight, value in objects:
+    for max_load in range(K, -1, -1):
+        if weight > max_load:
+            break
+        
+        max_values[max_load] = max(max_values[max_load - weight] + value, max_values[max_load])
+        
+print(max_values[K])
