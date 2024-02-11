@@ -1,5 +1,3 @@
-input = open(0).readline
-
 def coin_kind():
     cnt = int(input())
     coins = tuple(map(int,input().split()))
