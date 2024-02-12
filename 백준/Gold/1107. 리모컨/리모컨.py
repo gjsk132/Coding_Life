@@ -1,18 +1,16 @@
 input = open(0).readline
 
-limit = 500001*2
-
 cannel = []
 
 target = int(input())
 
-upDown = target - 100 if target > 100 else 100 - target
+limit = target*2 + 100
 
-bottons = int(input())
+upDown = target - 100 if target > 100 else 100 - target
 
 cnt = 0
 
-if bottons:
+if (brokenCnt := int(input())):
     broken = list(map(str,input().split()))
 
     for i in range(limit):
