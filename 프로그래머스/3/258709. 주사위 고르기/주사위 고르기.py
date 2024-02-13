@@ -42,5 +42,3 @@ def solution(dice):
             answer = A
         
     return [i + 1 for i in answer]
-    
-print(solution([[40, 41, 42, 43, 44, 45], [43, 43, 42, 42, 41, 41], [1, 1, 80, 80, 80, 80], [70, 70, 1, 1, 70, 70]]))
