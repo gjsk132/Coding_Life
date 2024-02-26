@@ -1,4 +1,5 @@
 from collections import defaultdict
+input = open(0).readline
 
 cnt = int(input())
 
