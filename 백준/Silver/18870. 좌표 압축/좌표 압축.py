@@ -5,11 +5,9 @@ cnt = int(input())
 
 origin = list(map(int,input().split()))
 
-num = sorted(set(origin))
-
 num_dict = defaultdict(int)
 
-for k, v in enumerate(num):
+for k, v in enumerate(sorted(set(origin))):
     num_dict[v] = k
 
 for i in origin:
