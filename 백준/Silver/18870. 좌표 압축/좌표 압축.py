@@ -10,5 +10,7 @@ num_dict = defaultdict(int)
 for k, v in enumerate(sorted(set(origin))):
     num_dict[v] = k
 
-for i in origin:
-    print(num_dict[i], end=" ")
+for k, v in enumerate(origin):
+    origin[k] = num_dict[v]
+
+print(*origin)
