@@ -1,10 +1,8 @@
-num = int(input())
-i = 2
+n=int(input())
 
-while num > 1:
-    if not num%i == 0:
-        i += 1
-        continue
+for i in range(2,int(n**(0.5))+1):
+    while n%i==0:
+        print(i);
+        n//=i
     
-    num /= i
-    print(i)
+if n!=1:print(n)
