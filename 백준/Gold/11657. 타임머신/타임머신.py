@@ -10,15 +10,13 @@ for i in range(path_cnt):
     
 INF = float("inf")
 costs = [INF for _ in range(city+1)]
-
 costs[1] = 0
 
 def check_all_line():
     for start in range(1, city+1):
+        if costs[start] == INF:
+            continue
         for end, cost in path[start]:
-            if costs[start] == INF:
-                continue
-            
             costs[end] = min(costs[end], costs[start]+cost)
 
 for _ in range(city-1):
