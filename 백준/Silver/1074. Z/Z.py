@@ -1,3 +1,5 @@
+input = open(0).readline
+
 n, row, col = map(int,input().split())
 
 def z_setting(r, c, size):
