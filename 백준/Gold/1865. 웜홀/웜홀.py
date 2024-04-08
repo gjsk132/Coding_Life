@@ -1,9 +1,7 @@
 input = open(0).readline
 
-from collections import deque
-
-def bellmanford(n):
-    node_info[n] = 0
+def bellmanford():
+    node_info[1] = 0
     for idx in range(1, node+1):
         for start in range(1, node+1):
             for (end, weight) in line_info[start]:
@@ -30,4 +28,4 @@ for i in range(int(input())):
     limit = 10001
     node_info = [limit for _ in range(node+1)]
 
-    print("YES" if bellmanford(1) else "NO")
+    print("YES" if bellmanford() else "NO")
