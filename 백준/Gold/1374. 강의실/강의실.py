@@ -1,18 +1,17 @@
+from heapq import *
+
 input = open(0).readline
 
 course_cnt = int(input())
-
-course_time = [0]*(course_cnt+1)
+course_time = []
 
 for _ in range(course_cnt):
     idx, start, end = map(int,input().split())
-    course_time[idx] = (start, end)
+    course_time.append((start, end))
 
-course_time = sorted(course_time[1:], key=lambda x:(x[0],x[1]))
+course_time = sorted(course_time, key=lambda x:(x[0],x[1]))
 
-from heapq import *
 end_time = []
-
 max_cnt = 0
 
 for start, end in course_time:
