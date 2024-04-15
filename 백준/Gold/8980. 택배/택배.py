@@ -5,21 +5,15 @@ box_info = [tuple(map(int,input().split())) for _ in range(int(input()))]
 
 box_info = sorted(box_info, key=lambda x:(x[1],x[0]))
 
-now_box = 0
+left_move = [max_box]*(node+1)
 
 total_box = 0
 
-from heapq import *
-
-move_box = []
-
 for start, end, boxes in box_info:
-    while move_box and move_box[0][0] <= start:
-        now_box -= heappop(move_box)[1]
 
-    can_move = min(max_box-now_box, boxes)
-    heappush(move_box, (end, can_move))
-    now_box += can_move
+    can_move = min(min(left_move[start:end]), boxes)
+    for idx in range(start,end):
+        left_move[idx] -= can_move
     total_box += can_move
 
 print(total_box)
