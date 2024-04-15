@@ -3,7 +3,7 @@ input = open(0).readline
 node, max_box = map(int,input().split())
 box_info = [tuple(map(int,input().split())) for _ in range(int(input()))]
 
-box_info = sorted(box_info, key=lambda x:(x[0],x[1]))
+box_info = sorted(box_info, key=lambda x:(x[1],x[0]))
 
 now_box = 0
 
