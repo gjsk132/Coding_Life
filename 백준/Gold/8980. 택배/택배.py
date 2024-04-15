@@ -11,7 +11,9 @@ total_box = 0
 
 for start, end, boxes in box_info:
 
-    can_move = min(min(left_move[start:end]), boxes)
+    if (can_move:= min(min(left_move[start:end]), boxes)) == 0:
+        continue
+
     for idx in range(start,end):
         left_move[idx] -= can_move
     total_box += can_move
