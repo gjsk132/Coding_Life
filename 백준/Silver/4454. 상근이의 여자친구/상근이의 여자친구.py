@@ -1,6 +1,6 @@
 input = open(0).readline
 
-def binary_search(start, end, cnt = 0):
+def binary_search(start, end, cnt=0):
 
     if int(start*100) == int(end*100):
         return str(start)
