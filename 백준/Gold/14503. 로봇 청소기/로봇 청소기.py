@@ -25,7 +25,7 @@ while True:
             continue
 
         r, c = nr, nc
-        d = (d - turn + 4)%4
+        d = (d - turn)%4
         is_clean = True
         break
 
