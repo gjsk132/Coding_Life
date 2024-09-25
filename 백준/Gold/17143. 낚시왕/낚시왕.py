@@ -12,6 +12,9 @@ table = [[0]*C for _ in range(R)]
 for _ in range(M):
     r, c, s, d, z = map(int, input().split())
 
+    if not s:
+        s = s % (2*R-2) if d <= 2 else s % (2*C-2)
+
     table[r-1][c-1] = max(table[r-1][c-1], z)
     dq.append((r-1, c-1, s, d, z))
 
