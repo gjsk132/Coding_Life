@@ -13,7 +13,7 @@ pos = 1
 while nums:
     n = nums.popleft()
     
-    if not (pos := pos%K) == 0:
+    if not pos%K == 0:
         nums.append(n)
     else:
         answer.append(str(n))
