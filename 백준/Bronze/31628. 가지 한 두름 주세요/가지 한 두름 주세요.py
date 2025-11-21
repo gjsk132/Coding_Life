@@ -9,13 +9,14 @@ for _ in range(10):
 
     if len(set(tmp)) == 1:
         flag = True
+        break
     
     for idx, c in enumerate(tmp):
         cols[idx].add(c)
     
-
-for c in cols:
-    if len(c) == 1:
-        flag = True
+if not flag:
+    for c in cols:
+        if len(c) == 1:
+            flag = True
 
 print(1 if flag else 0)
