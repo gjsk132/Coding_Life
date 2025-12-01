@@ -2,14 +2,25 @@ input = open(0).readline
 
 N, M = int(input()), int(input())
 
-target = "I" + "OI"*N
+S = input().rstrip("O").lstrip("O")
+S = S.replace("OI", "A")
 
-S = input().strip()
-
+answer = 0
 cnt = 0
+pos = 0
 
-for i in range(0, M-2*N):
-    if S[i:i+2*N+1] == target:
+while pos < len(S):
+    if S[pos] == "I":
+        answer += max(0, cnt - N + 1)
+        cnt = 0
+    elif S[pos] == "O":
+        answer += max(0, cnt - N + 1)
+        cnt = -1
+    elif S[pos] == "A":
         cnt += 1
 
-print(cnt)
+    pos += 1
+
+answer += max(0, cnt-N+1)
+
+print(answer)
