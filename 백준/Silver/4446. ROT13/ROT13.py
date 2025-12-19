@@ -14,17 +14,13 @@ for before, after in zip(before_consonants, before_consonants[10:]+before_conson
     resolve_rules[before.upper()] = after.upper()
 
 while True:
-    try:
-        line = input()
+    line = input()
 
-        if not line:
-            break
-
-        for ch in line:
-            if ch in resolve_rules:
-                print(resolve_rules[ch], end="")
-            else:
-                print(ch, end="")
-
-    except:
+    if not line:
         break
+
+    for ch in line:
+        if ch in resolve_rules:
+            print(resolve_rules[ch], end="")
+        else:
+            print(ch, end="")
