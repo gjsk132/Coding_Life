@@ -6,10 +6,8 @@ total, partition = map(int, input().split())
 
 p_poses = [0]+list(map(int, input().split()))+[total]
 
-room_lens = [p_poses[i+1]-p_poses[i] for i in range(partition+1)]
+for s in range(len(p_poses)):
+    for e in range(s, len(p_poses)):
+        room_sizes.add(p_poses[e]-p_poses[s])        
 
-for s in range(len(room_lens)):
-    for e in range(s, len(room_lens)):
-        room_sizes.add(sum(room_lens[s:e+1]))
-
-print(" ".join(map(str, sorted(list(room_sizes)))))
+print(" ".join(map(str, sorted(list(room_sizes))[1:])))
