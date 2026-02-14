@@ -24,8 +24,7 @@ for least, increase in zip(least_list, increase_list):
     if flag:
         break
 
-    while now_weight - reduce >= least:
-        now_weight -= reduce
-        routine_cnt += 1
+    routine_cnt += (now_weight - least)//reduce
+    now_weight = least + (now_weight - least) % reduce
     
 print(routine_cnt)
